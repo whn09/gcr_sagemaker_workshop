@@ -1,0 +1,18 @@
+FROM 579019700964.dkr.ecr.ap-northeast-1.amazonaws.com/preprod-mxnet:1.4.1-cpu-py3
+
+RUN pip install gluonnlp
+
+RUN mkdir -p /opt/ml/code/
+# RUN mkdir -p /opt/ml/output/ /opt/ml/input/data/train/ /opt/ml/input/data/validation/ /opt/ml/input/config/ /opt/ml/model/
+
+ENV PYTHONUNBUFFERED=TRUE
+ENV PYTHONDONTWRITEBYTECODE=TRUE
+ENV PATH="/opt/ml/code:${PATH}"
+
+COPY fasttext_word_ngram.py train /opt/ml/code/
+
+# COPY train.tsv /opt/ml/input/data/train/
+# COPY dev.tsv  /opt/ml/input/data/validation/
+# COPY hyperparameters.json inputdataconfig.json /opt/ml/input/config/
+
+WORKDIR /opt/ml/code/

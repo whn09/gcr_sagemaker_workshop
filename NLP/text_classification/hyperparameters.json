@@ -1,0 +1,1 @@
+{"input": "train.tsv", "output": "mia.gluon", "validation": "dev.tsv", "log_file": "output.log", "ngrams": "2", "epochs": "10", "lr": "0.05", "emsize": "100"}
