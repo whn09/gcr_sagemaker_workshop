@@ -56,19 +56,16 @@ def _hyperparameters_to_cmd_args(hyperparameters):
     algorithm.
     """
     cmd_args_list = []
+    
+    hyperparameters['input'] = os.path.join(train_path, os.listdir(train_path)[0])
+    hyperparameters['validation'] = os.path.join(validation_path, os.listdir(validation_path)[0])
+    hyperparameters['output'] = os.path.join(model_path, 'gluonnlp.model')
+    hyperparameters['log_file'] = os.path.join(log_path, 'output.log')
 
     for key, value in hyperparameters.items():
-        if key == 'input':
-            value = os.path.join(train_path, value)
-        if key == 'validation':
-            value = os.path.join(validation_path, value)
-        if key == 'output':
-            value = os.path.join(model_path, value)
-        if key == 'log_file':
-            value = os.path.join(log_path, value)
         cmd_args_list.append('--{}'.format(key))
         cmd_args_list.append(value)
-
+    
     return cmd_args_list
 
 

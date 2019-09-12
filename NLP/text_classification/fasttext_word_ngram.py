@@ -193,7 +193,7 @@ def read_input_data(filename):
     data = []
     labels = []
     for line in input_file:
-        tokens = line.split('\t', 1)  # TODO default is ,
+        tokens = line.split(',', 1)
         labels.append(tokens[0].strip())
         data.append(tokens[1].strip())
     return labels, data

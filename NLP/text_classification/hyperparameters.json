@@ -1,1 +1,1 @@
-{"input": "dbpedia.train", "output": "dbpedia.gluon", "validation": "dbpedia.test", "log_file": "output.log", "ngrams": "2", "epochs": "10", "lr": "0.05", "emsize": "100"}
+{"ngrams": "2", "epochs": "10", "lr": "0.05", "emsize": "100"}
